@@ -1,0 +1,23 @@
+def find_highest_frequency_word_length(string):
+    word_frequency = {}
+    words = string.split()
+
+    for word in words:
+        if word in word_frequency:
+            word_frequency[word] += 1
+        else:
+            word_frequency[word] = 1
+
+    highest_frequency = max(word_frequency.values())
+    highest_frequency_word = [word for word, freq in word_frequency.items() if freq == highest_frequency]
+    highest_frequency_word_length = len(highest_frequency_word[0])
+
+    return highest_frequency_word_length
+
+
+# Example usage
+input_string = "write write write all the number from from from 1 to 100"
+result = find_highest_frequency_word_length(input_string)
+print(result)
+
+
